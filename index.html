@@ -26,9 +26,12 @@
   <!-- summernote -->
   <link rel="stylesheet" href="js/summernote/summernote-bs4.min.css">
   <style>
-    aside{
+    .a_purple{
       background-color: #442460 !important;
-    }
+    } 
+    .a_purple_txt{
+      color: #442460 !important;
+    } 
     .a_pinkcolor{
       background-color: #F8EEFA;
     }
@@ -44,6 +47,22 @@
     .a_tbdr{
       border:1px dashed #000;
     }
+    ::placeholder {
+      color: #000 !important;
+    }
+    .a_border-bottom:focus ~ .a_xyz{
+      top:-10px;
+      font-size: 0.8em;
+    }
+    .a_border-bottom{
+      border-bottom: 2px solid #000 !important;
+    }
+    .a_xyz{
+      position: absolute;
+      top:0px;
+      transition: all 0.1s linear;
+      font-size: 1em;
+    }
     @media only screen and (max-width: 600px) {
       .a_pink{  
         height: 80px;
@@ -57,6 +76,42 @@
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+  <!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg pt-5">
+    <div class="modal-content mt-5">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Let's create a project for you!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>We need a little information to create your first project. This should take just a couple of minutes.</p>
+        <form>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group" style="position: relative;">
+                <input placeholder="" type="email " class="form-control border-0 rounded-0 a_border-bottom " id="exampleInputEmail1" aria-describedby="emailHelp">
+                <span class="a_xyz">Enter project name</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <input placeholder="Enter research market" type="email " class="form-control border-0 rounded-0 a_border-bottom" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Reset</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -200,7 +255,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="a_purple main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link bg-white">
       <img src="img/logo.svg" alt="IDSTATS" class="brand-image" style="opacity: .8">
@@ -404,9 +459,8 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid a_pink a_pinkcolor p-3">
-        <div class="a_pinkbox h-100">
-         
-        </div><!-- /.row -->
+        <div class="a_pinkbox h-100"></div><!-- /.row -->
+        
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -414,7 +468,15 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-
+        <div class="row">
+          <div class="col-6">
+            <h3 class="fw-bold a_purple_txt">User Experience Mapping</h3>
+          </div>
+          <div class="col-6 ">
+            <button class="btn float-right a_purple text-white"  data-toggle="modal" data-target="#exampleModal">Create new project</button>
+          </div>
+        </div>
+        
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
